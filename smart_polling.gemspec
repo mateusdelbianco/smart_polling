@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = SmartPolling::VERSION
   spec.authors       = ["Mateus Del Bianco"]
   spec.email         = ["mateus@delbianco.net.br"]
-  spec.summary       = %q{SmartPolling is your favorite watchdog timer.}
-  spec.description   = %q{SmartPolling makes sure your code is still alive, barking out loud if there's silence for too long.}
+  spec.summary       = %q{SmartPolling is the smartest way to poll something.}
+  spec.description   = %q{SmartPolling keeps polling something, for a limited time, until it gets a response.}
   spec.homepage      = "https://github.com/mateusdelbianco/smart_polling"
   spec.license       = "MIT"
 
