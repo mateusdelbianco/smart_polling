@@ -25,7 +25,7 @@ Or install it yourself as:
 It will call the external service until the response is "done":
 
 ```ruby
-SmartPolling.poll(timeout: 60, delay: 5) do
+SmartPolling.poll(timeout: 60, interval: 5) do
   response = ExternalService.call
   response == "done"
 end

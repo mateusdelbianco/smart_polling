@@ -6,12 +6,12 @@ RSpec.describe SmartPolling do
       let(:block) { -> { false } }
 
       it "raises SmartPolling::TimeoutError" do
-        expect { SmartPolling.poll(timeout: 0.2, delay: 0.05, &block) }.
+        expect { SmartPolling.poll(timeout: 0.2, interval: 0.05, &block) }.
           to raise_error(SmartPolling::TimeoutError)
       end
 
       it "raises a custom error" do
-        expect { SmartPolling.poll(timeout: 0.2, delay: 0.05, timeout_error: StandardError.new("custom_error"), &block) }.
+        expect { SmartPolling.poll(timeout: 0.2, interval: 0.05, timeout_error: StandardError.new("custom_error"), &block) }.
           to raise_error(StandardError, "custom_error")
       end
     end
@@ -23,7 +23,7 @@ RSpec.describe SmartPolling do
       end
 
       it "returns the first non-false value" do
-        expect(SmartPolling.poll(timeout: 0.2, delay: 0.05, &block)).to eq("return_value")
+        expect(SmartPolling.poll(timeout: 0.2, interval: 0.05, &block)).to eq("return_value")
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe SmartPolling do
       let(:block) { -> { "return_value" } }
 
       it "returns the value" do
-        expect(SmartPolling.poll(timeout: 0.2, delay: 0.05, &block)).to eq("return_value")
+        expect(SmartPolling.poll(timeout: 0.2, interval: 0.05, &block)).to eq("return_value")
       end
     end
   end
